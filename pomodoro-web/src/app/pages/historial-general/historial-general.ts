@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 export interface SesionHistorial {
   readonly fecha: string;
@@ -8,7 +9,7 @@ export interface SesionHistorial {
 }
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-historial-general',
   styleUrl: './historial-general.css',
   templateUrl: './historial-general.html',

@@ -1,1 +1,24 @@
-<p>historial-filtrado works!</p>
+<section class="page">
+  <p class="page__eyebrow">Historial · Filtrado por "{{ actividad }}"</p>
+  <h1 class="page__title">Historial</h1>
+
+  <div class="session-list">
+    @for (sesion of sesiones; track sesion.fecha) {
+      <article class="session">
+        <span class="session__name">{{ sesion.fecha }} — {{ sesion.actividad }}</span>
+        <span class="session__meta">
+          <span class="session__time">{{ sesion.duracion }}</span>
+          <span
+            class="badge"
+            [class.badge--completa]="sesion.completa"
+            [class.badge--incompleta]="!sesion.completa"
+          >
+            {{ sesion.completa ? 'Completa' : 'Incompleta' }}
+          </span>
+        </span>
+      </article>
+    }
+  </div>
+
+  <a class="page__link" routerLink="/historial-general">← Volver</a>
+</section>
