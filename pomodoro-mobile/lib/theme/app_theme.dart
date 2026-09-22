@@ -1,10 +1,15 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'app-colors.dart';
+import 'app_colors.dart';
 
 /// Tema Material 3 configurado con los colores y tipografía del Style Tile.
 class AppTheme {
   AppTheme._();
+
+  /// Ancho máximo del contenido. En un teléfono no se nota (las pantallas son
+  /// más angostas); en web evita que todo se estire a lo ancho del monitor.
+  static const double maxContentWidth = 480;
 
   static ThemeData get theme {
     final baseTextTheme = GoogleFonts.robotoTextTheme();
@@ -17,6 +22,7 @@ class AppTheme {
         primary: AppColors.flowConfig,
         secondary: AppColors.flowClosure,
         tertiary: AppColors.flowFocus,
+        error: AppColors.flowEarlyFinish,
         surface: AppColors.neutralBackground,
       ),
       textTheme: baseTextTheme.copyWith(
@@ -49,9 +55,19 @@ class AppTheme {
   }
 
   /// Estilo custom para el timer grande (no forma parte del TextTheme estándar).
+  ///
+  /// El tamaño se adapta al viewport: se limita por el ancho del contenido y
+  /// también por el alto, para que en horizontal o en una ventana baja el
+  /// número no se coma la pantalla. En un teléfono de 412x891 da ~64, que es
+  /// el valor del Style Tile.
   static TextStyle timerTextStyle(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
+    final byWidth = math.min(size.width, maxContentWidth) * 0.155;
+    final byHeight = size.height * 0.14;
+    final fontSize = math.min(byWidth, byHeight).clamp(36.0, 72.0);
+
     return GoogleFonts.roboto(
-      fontSize: 64,
+      fontSize: fontSize,
       fontWeight: FontWeight.w700,
       letterSpacing: -1,
       color: AppColors.neutralTextPrimary,
