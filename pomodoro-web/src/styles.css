@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg-outer: #EBE8F4; --bg-inner: #FDF8EE; --nav-bg: #FFFFFF;
+  --text-main: #16181D; --text-muted: #6B7280;
+  --orange: #F0900C; --orange-soft: #FDECD2;
+  --red: #E5484D; --red-soft: #FBE7E7; --red-text: #991B1B;
+  --green-soft: #D1FAE5; --green-text: #065F46;
+  font-family: "Inter", -apple-system, sans-serif;
+}
+html, body { margin: 0; padding: 0; height: 100%; background: var(--bg-outer); display: flex; justify-content: center; align-items: center; }
+
+.screen-container { width: 1000px; height: 700px; background: var(--nav-bg); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow: hidden; position: relative; }
+.topnav { display: flex; gap: 12px; padding: 20px 40px; }
+.navtab { padding: 8px 20px; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--text-muted); text-decoration: none; transition: 0.2s; cursor: pointer; }
+.navtab:hover { background: #F3F4F6; color: var(--text-main); }
+.navtab.active { background: var(--orange); color: white; }
+.navtab.active-red { background: var(--red); color: white; }
+.content-area { flex: 1; background: var(--bg-inner); border-top: 1px solid #E5E7EB; display: flex; flex-direction: column; overflow-y: auto; }
