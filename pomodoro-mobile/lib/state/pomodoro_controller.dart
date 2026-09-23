@@ -13,8 +13,8 @@ enum SessionPhase { focus, breakTime, finished }
 /// y nunca acumulando ticks: si el sistema operativo estrangula los timers con
 /// la app en segundo plano, al volver el conteo sigue siendo correcto.
 class PomodoroController extends ChangeNotifier {
-  static const focusDuration = Duration(minutes: 25);
-  static const breakDuration = Duration(minutes: 5);
+  static const focusDuration = Duration(minutes: 1);
+  static const breakDuration = Duration(minutes: 1);
   static const totalCycles = 3;
 
   /// Provisional hasta que exista la pantalla de Configuración.
