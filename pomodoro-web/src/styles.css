@@ -38,7 +38,16 @@ html, body { margin: 0; padding: 0; height: 100%; background: var(--bg-outer); d
 .session__meta { display: flex; align-items: center; gap: 16px; }
 .session__time { font-size: 13px; color: var(--text-muted); white-space: nowrap; }
 
+a.session { text-decoration: none; transition: 0.2s; }
+a.session:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+
+/* Detalle de una sesión */
+.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 8px; }
+.detail-card { background: #FFFDF7; border-radius: 12px; padding: 20px 24px; }
+.detail-card__label { font-size: 12px; color: var(--text-muted); margin: 0 0 6px; }
+.detail-card__value { font-size: 16px; font-weight: 600; color: var(--text-main); margin: 0; }
+
 /* Estado de la sesión */
-.badge { padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.badge { display: inline-block; padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
 .badge--completa { background: var(--green-soft); color: var(--green-text); }
 .badge--incompleta { background: var(--red-soft); color: var(--red-text); }

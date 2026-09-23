@@ -4,7 +4,7 @@
 
   <div class="session-list">
     @for (sesion of sesiones; track sesion.fecha) {
-      <article class="session">
+      <a class="session" routerLink="/historial-detalle">
         <span class="session__name">{{ sesion.fecha }} — {{ sesion.actividad }}</span>
         <span class="session__meta">
           <span class="session__time">{{ sesion.duracion }}</span>
@@ -16,7 +16,7 @@
             {{ sesion.completa ? 'Completa' : 'Incompleta' }}
           </span>
         </span>
-      </article>
+      </a>
     }
   </div>
 

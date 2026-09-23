@@ -1,1 +1,34 @@
-<p>historial-detalle works!</p>
+<section class="page">
+  <p class="page__eyebrow">Historial</p>
+  <h1 class="page__title">Detalle de sesión</h1>
+
+  <div class="detail-grid">
+    <article class="detail-card">
+      <p class="detail-card__label">Actividad</p>
+      <p class="detail-card__value">{{ actividad }}</p>
+    </article>
+
+    <article class="detail-card">
+      <p class="detail-card__label">Ciclos completados vs planeados</p>
+      <p class="detail-card__value">{{ ciclos }}</p>
+    </article>
+
+    <article class="detail-card">
+      <p class="detail-card__label">Tiempo total</p>
+      <p class="detail-card__value">{{ tiempoTotal }}</p>
+    </article>
+
+    <article class="detail-card">
+      <p class="detail-card__label">Estado</p>
+      <span
+        class="badge"
+        [class.badge--completa]="completa"
+        [class.badge--incompleta]="!completa"
+      >
+        {{ completa ? 'Completa' : 'Incompleta' }}
+      </span>
+    </article>
+  </div>
+
+  <a class="page__link" routerLink="/historial-general">← Volver al historial</a>
+</section>
