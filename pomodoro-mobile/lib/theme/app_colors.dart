@@ -24,6 +24,8 @@ class AppColors {
   static const closureOnContainer = Color(0xFF15803D);
   static const earlyFinishContainer = Color(0xFFFEE2E2);
   static const earlyFinishOnContainer = Color(0xFFB91C1C);
+  static const interruptContainer = Color(0xFFEDE9FE);
+  static const interruptOnContainer = Color(0xFF6D28D9);
 
   static const progressTrack = Color(0xFFE6E0E9);
 }

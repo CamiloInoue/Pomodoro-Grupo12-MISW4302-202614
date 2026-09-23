@@ -36,22 +36,40 @@ class FocusActiveScreen extends StatelessWidget {
         bottom: Row(
           children: [
             Expanded(
-              child: OutlinedButton(
-                onPressed: onPauseTap,
-                style: OutlinedButton.styleFrom(
-                  foregroundColor: AppColors.neutralTextPrimary,
-                  side: const BorderSide(color: AppColors.neutralBorder, width: 1.5),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  minimumSize: const Size.fromHeight(40),
-                ),
-                child: Text(
-                  isPaused ? '▶ Reanudar' : '⏸ Pausar',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
+              child: isPaused
+                  ? ElevatedButton(
+                      onPressed: onPauseTap,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.flowInterrupt,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        minimumSize: const Size.fromHeight(40),
+                        elevation: 0,
+                      ),
+                      child: const Text(
+                        '▶ Reanudar',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    )
+                  : OutlinedButton(
+                      onPressed: onPauseTap,
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: AppColors.neutralTextPrimary,
+                        side: const BorderSide(color: AppColors.neutralBorder, width: 1.5),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        minimumSize: const Size.fromHeight(40),
+                      ),
+                      child: const Text(
+                        '⏸ Pausar',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
             ),
             const SizedBox(width: 8),
             Expanded(
@@ -75,7 +93,7 @@ class FocusActiveScreen extends StatelessWidget {
           ],
         ),
         children: [
-          // Badge "Enfoque activo"
+          // Badge "Enfoque activo" (+ "En pausa" cuando corresponde)
           Row(
             children: [
               Container(
@@ -93,6 +111,23 @@ class FocusActiveScreen extends StatelessWidget {
                       color: AppColors.flowFocus,
                     ),
               ),
+              if (isPaused) ...[
+                const SizedBox(width: 8),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: AppColors.interruptContainer,
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  child: Text(
+                    'En pausa',
+                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                          color: AppColors.interruptOnContainer,
+                          fontWeight: FontWeight.w600,
+                        ),
+                  ),
+                ),
+              ],
             ],
           ),
           const SizedBox(height: 16),
@@ -101,7 +136,7 @@ class FocusActiveScreen extends StatelessWidget {
           ProgressDots(
             totalCycles: totalCycles,
             currentCycle: currentCycle,
-            activeColor: AppColors.flowFocus,
+            activeColor: isPaused ? AppColors.flowInterrupt : AppColors.flowFocus,
           ),
           const SizedBox(height: 24),
 
@@ -131,7 +166,9 @@ class FocusActiveScreen extends StatelessWidget {
               value: progress,
               minHeight: 8,
               backgroundColor: AppColors.progressTrack,
-              valueColor: const AlwaysStoppedAnimation(AppColors.flowFocus),
+              valueColor: AlwaysStoppedAnimation(
+                isPaused ? AppColors.flowInterrupt : AppColors.flowFocus,
+              ),
             ),
           ),
           const SizedBox(height: 16),
