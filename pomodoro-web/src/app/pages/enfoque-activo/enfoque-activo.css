@@ -1,0 +1,12 @@
+.flex-center { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; }
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 24px; color: var(--text-main); }
+.dots { display: flex; gap: 8px; margin-bottom: 30px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
+.dot.active { background: var(--orange); }
+.timer { font-size: 100px; font-weight: 700; color: var(--orange); margin-bottom: 10px; line-height: 1; }
+.custom-progress { width: 350px; height: 8px; border-radius: 999px; margin-bottom: 20px; --mdc-linear-progress-active-indicator-color: var(--orange); }
+.subtitle { font-size: 15px; color: var(--text-muted); margin-bottom: 30px; }
+.badge { background: var(--orange-soft); color: #8A5A05; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; margin-bottom: 40px; }
+.btn-wide { width: 350px; height: 48px; border-radius: 999px; font-weight: 600; font-size: 15px; margin-bottom: 16px; }
+.btn-row { display: flex; gap: 16px; width: 350px; }
+.btn-half { flex: 1; height: 48px; border-radius: 999px; font-weight: 600; font-size: 15px; }

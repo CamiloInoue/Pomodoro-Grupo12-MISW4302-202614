@@ -1,53 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
 :root {
-  --bg-outer: #EBE8F4; --bg-inner: #FDF8EE; --nav-bg: #FFFFFF;
+  --bg-main: #F5F6FA; --surface: #FFFFFF; --border: #E2E4EA;
   --text-main: #16181D; --text-muted: #6B7280;
   --orange: #F0900C; --orange-soft: #FDECD2;
-  --red: #E5484D; --red-soft: #FBE7E7; --red-text: #991B1B;
-  --green-soft: #D1FAE5; --green-text: #065F46;
+  --red: #E5484D; --red-soft: #FBE7E7;
+  --green: #16A34A; --green-soft: #E5F6EA; --green-text: #065F46;
   font-family: "Inter", -apple-system, sans-serif;
 }
-html, body { margin: 0; padding: 0; height: 100%; background: var(--bg-outer); display: flex; justify-content: center; align-items: center; }
+html, body { margin: 0; padding: 0; height: 100%; background: var(--bg-main); display: flex; justify-content: center; align-items: center; }
 
-.screen-container { width: 1000px; height: 700px; background: var(--nav-bg); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow: hidden; position: relative; }
+/* Forzar colores en Angular Material */
+.btn-orange { --mdc-outlined-button-label-text-color: var(--orange) !important; --mdc-outlined-button-outline-color: var(--orange) !important; }
+.btn-orange-solid { --mdc-filled-button-container-color: var(--orange) !important; --mdc-filled-button-label-text-color: #FFFFFF !important; }
+.btn-red { --mdc-outlined-button-label-text-color: var(--red) !important; --mdc-outlined-button-outline-color: var(--red) !important; }
+.btn-red-solid { --mdc-filled-button-container-color: var(--red) !important; --mdc-filled-button-label-text-color: #FFFFFF !important; }
+
+/* Contenedor Web */
+.screen-container { width: 1000px; height: 700px; background: var(--surface); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow: hidden; position: relative; }
 .topnav { display: flex; gap: 12px; padding: 20px 40px; }
 .navtab { padding: 8px 20px; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--text-muted); text-decoration: none; transition: 0.2s; cursor: pointer; }
-.navtab:hover { background: #F3F4F6; color: var(--text-main); }
-.navtab.active { background: var(--orange); color: white; }
-.navtab.active-red { background: var(--red); color: white; }
-.content-area { flex: 1; background: var(--bg-inner); border-top: 1px solid #E5E7EB; display: flex; flex-direction: column; overflow-y: auto; }
-
-/* ---- Pantallas de Historial ---- */
-
-.page { width: 100%; max-width: 700px; margin: 0 auto; padding: 32px 0 40px; box-sizing: border-box; }
-.page__eyebrow { font-size: 12px; color: var(--text-muted); margin: 0 0 4px; }
-.page__title { font-size: 28px; font-weight: 700; color: var(--text-main); margin: 0 0 24px; letter-spacing: -0.5px; }
-.page__link { display: inline-block; margin-top: 8px; font-size: 13px; color: var(--text-muted); text-decoration: none; cursor: pointer; }
-.page__link:hover { color: var(--text-main); }
-
-/* Filtros de periodo y actividad */
-.filters { display: flex; gap: 56px; margin-bottom: 32px; }
-.filters__field { display: flex; flex-direction: column; flex: 1; }
-.filters__label { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
-.filters__input { appearance: none; background: #FFFDF7; border: 1px solid #E5E7EB; border-radius: 8px; padding: 12px 16px; font-family: inherit; font-size: 14px; color: var(--text-main); cursor: pointer; }
-
-/* Listado de sesiones */
-.session-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 8px; }
-.session { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: #FFFDF7; border-radius: 12px; padding: 20px 24px; }
-.session__name { font-size: 15px; font-weight: 700; color: var(--text-main); }
-.session__meta { display: flex; align-items: center; gap: 16px; }
-.session__time { font-size: 13px; color: var(--text-muted); white-space: nowrap; }
-
-a.session { text-decoration: none; transition: 0.2s; }
-a.session:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-
-/* Detalle de una sesión */
-.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 8px; }
-.detail-card { background: #FFFDF7; border-radius: 12px; padding: 20px 24px; }
-.detail-card__label { font-size: 12px; color: var(--text-muted); margin: 0 0 6px; }
-.detail-card__value { font-size: 16px; font-weight: 600; color: var(--text-main); margin: 0; }
-
-/* Estado de la sesión */
-.badge { display: inline-block; padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
-.badge--completa { background: var(--green-soft); color: var(--green-text); }
-.badge--incompleta { background: var(--red-soft); color: var(--red-text); }
+.navtab:hover { background: #E9F0FE; color: #2F6FED; }
+.navtab.active { background: var(--orange); color: var(--surface); }
+.navtab.active-red { background: var(--red); color: var(--surface); }
+.content-area { flex: 1; background: #FDF8EE; border-top: 1px solid var(--border); display: flex; flex-direction: column; overflow-y: auto; position: relative; }

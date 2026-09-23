@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
-  imports: [],
   selector: 'app-enfoque-activo',
-  styleUrl: './enfoque-activo.css',
+  standalone: true,
+  imports: [RouterModule, MatButtonModule, MatProgressBarModule],
   templateUrl: './enfoque-activo.html',
+  styleUrls: ['./enfoque-activo.css']
 })
-export class EnfoqueActivo {}
+export class EnfoqueActivoComponent {}
