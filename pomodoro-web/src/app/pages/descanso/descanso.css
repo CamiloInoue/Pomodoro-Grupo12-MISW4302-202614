@@ -1,0 +1,8 @@
+.flex-center { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; }
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 24px; color: var(--text-main); }
+.dots { display: flex; gap: 8px; margin-bottom: 30px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
+.dot.active { background: var(--orange); }
+.timer { font-size: 100px; font-weight: 700; color: var(--text-main); margin-bottom: 10px; line-height: 1; }
+.subtitle { font-size: 15px; color: var(--text-muted); margin-bottom: 50px; }
+.btn-wide { width: 350px; height: 48px; border-radius: 999px; font-weight: 600; font-size: 15px; margin-bottom: 16px; }

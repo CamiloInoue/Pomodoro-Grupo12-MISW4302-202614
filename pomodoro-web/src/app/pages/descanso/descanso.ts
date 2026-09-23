@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  imports: [],
   selector: 'app-descanso',
-  styleUrl: './descanso.css',
+  standalone: true,
+  imports: [RouterModule, MatButtonModule],
   templateUrl: './descanso.html',
+  styleUrls: ['./descanso.css']
 })
-export class Descanso {}
+export class DescansoComponent {}
