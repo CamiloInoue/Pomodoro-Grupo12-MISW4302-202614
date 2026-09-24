@@ -1,1 +1,14 @@
-<p>modal-confirmar works!</p>
+<div class="overlay">
+  <div class="modal">
+    <h2>¿Seguro que quieres terminar la sesión?</h2>
+    <p class="modal-warning">Al finalizar ahora, este ciclo no se marcará como completado en tu historial ni en tus estadísticas.</p>
+    <div class="info-box">
+      <span>Ciclos completados hasta ahora</span>
+      <span class="value">1 de 3</span>
+    </div>
+    <div class="btn-row">
+      <button mat-stroked-button routerLink="/enfoque-activo" class="btn-half">Cancelar</button>
+      <button mat-flat-button routerLink="/historial-detalle" class="btn-half btn-red-solid">Sí, finalizar</button>
+    </div>
+  </div>
+</div>

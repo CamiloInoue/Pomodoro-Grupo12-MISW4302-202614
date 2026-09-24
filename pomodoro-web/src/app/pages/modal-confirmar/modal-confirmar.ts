@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  imports: [],
   selector: 'app-modal-confirmar',
-  styleUrl: './modal-confirmar.css',
+  standalone: true,
+  imports: [RouterModule, MatButtonModule],
   templateUrl: './modal-confirmar.html',
+  styleUrls: ['./modal-confirmar.css']
 })
-export class ModalConfirmar {}
+export class ModalConfirmarComponent {}
