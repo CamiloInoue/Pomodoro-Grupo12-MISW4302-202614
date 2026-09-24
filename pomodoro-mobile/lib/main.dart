@@ -26,9 +26,7 @@ class _PomodoroAppState extends State<PomodoroApp> {
   void initState() {
     super.initState();
     _controller = PomodoroController();
-    // Se arranca aquí, antes del primer build: llamarlo desde un descendiente
-    // dispararía notifyListeners() en pleno build.
-    _controller.start();
+
   }
 
   @override
@@ -45,7 +43,7 @@ class _PomodoroAppState extends State<PomodoroApp> {
         title: 'Pomodoro App',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.theme,
-        home: const SessionFlowScreen(),
+        home: const InicioScreen(),
       ),
     );
   }
