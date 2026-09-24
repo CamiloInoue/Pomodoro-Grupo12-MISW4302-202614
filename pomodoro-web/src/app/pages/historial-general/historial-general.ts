@@ -9,6 +9,14 @@ export interface SesionHistorial {
   readonly completa: boolean;
 }
 
+/** Fuente única de sesiones de ejemplo, compartida con historial-filtrado. */
+export const SESIONES_MOCK: readonly SesionHistorial[] = [
+  { fecha: 'Lun 18 Ago', actividad: 'Terminar ensayo', duracion: '50 min', completa: true },
+  { fecha: 'Mar 19 Ago', actividad: 'Estudiar Cálculo', duracion: '25 min', completa: true },
+  { fecha: 'Mié 20 Ago', actividad: 'Leer capítulo 4', duracion: '32 min', completa: false },
+  { fecha: 'Jue 21 Ago', actividad: 'Terminar ensayo', duracion: '1h 05min', completa: true },
+];
+
 @Component({
   imports: [RouterLink],
   selector: 'app-historial-general',
@@ -30,12 +38,5 @@ export class HistorialGeneral {
     'Leer capítulo 4',
   ];
 
-  /** Actividad de ejemplo sobre la que se ofrece el historial filtrado. */
-  protected readonly actividadDestacada = 'Terminar ensayo';
-
-  protected readonly sesiones: readonly SesionHistorial[] = [
-    { fecha: 'Lun 18 Ago', actividad: 'Terminar ensayo', duracion: '50 min', completa: true },
-    { fecha: 'Mar 19 Ago', actividad: 'Estudiar Cálculo', duracion: '25 min', completa: true },
-    { fecha: 'Mié 20 Ago', actividad: 'Leer capítulo 4', duracion: '32 min', completa: false },
-  ];
+  protected readonly sesiones = SESIONES_MOCK;
 }

@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { SesionHistorial } from '../historial-general/historial-general';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { SESIONES_MOCK } from '../historial-general/historial-general';
 
 @Component({
   imports: [RouterLink],
@@ -11,15 +11,16 @@ import { SesionHistorial } from '../historial-general/historial-general';
 })
 export class HistorialFiltrado {
   private readonly location = inject(Location);
+  private readonly route = inject(ActivatedRoute);
 
   protected goBack(): void {
     this.location.back();
   }
 
-  protected readonly actividad = 'Terminar ensayo';
+  protected readonly actividad =
+    this.route.snapshot.queryParamMap.get('actividad') ?? 'Terminar ensayo';
 
-  protected readonly sesiones: readonly SesionHistorial[] = [
-    { fecha: 'Lun 18 Ago', actividad: 'Terminar ensayo', duracion: '50 min', completa: true },
-    { fecha: 'Jue 21 Ago', actividad: 'Terminar ensayo', duracion: '1h 05min', completa: true },
-  ];
+  protected readonly sesiones = SESIONES_MOCK.filter(
+    (sesion) => sesion.actividad === this.actividad,
+  );
 }
