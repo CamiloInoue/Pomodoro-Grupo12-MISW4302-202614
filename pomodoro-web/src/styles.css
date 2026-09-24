@@ -49,7 +49,7 @@ body {
 .page { width: 100%; max-width: 700px; margin: 0 auto; padding: 32px 0 40px; box-sizing: border-box; }
 .page__eyebrow { font-size: 12px; color: var(--text-muted); margin: 0 0 4px; }
 .page__title { font-size: 28px; font-weight: 700; color: var(--text-main); margin: 0 0 24px; letter-spacing: -0.5px; }
-.page__link { display: inline-block; margin-top: 8px; font-size: 13px; color: var(--text-muted); text-decoration: none; cursor: pointer; }
+.page__link { display: inline-block; margin-top: 8px; font-size: 13px; color: var(--text-muted); text-decoration: none; cursor: pointer; background: none; border: none; padding: 0; font-family: inherit; }
 .page__link:hover { color: var(--text-main); }
 
 /* Filtros de periodo y actividad */

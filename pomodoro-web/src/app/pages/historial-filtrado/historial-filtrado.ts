@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SesionHistorial } from '../historial-general/historial-general';
 
@@ -9,6 +10,12 @@ import { SesionHistorial } from '../historial-general/historial-general';
   templateUrl: './historial-filtrado.html',
 })
 export class HistorialFiltrado {
+  private readonly location = inject(Location);
+
+  protected goBack(): void {
+    this.location.back();
+  }
+
   protected readonly actividad = 'Terminar ensayo';
 
   protected readonly sesiones: readonly SesionHistorial[] = [

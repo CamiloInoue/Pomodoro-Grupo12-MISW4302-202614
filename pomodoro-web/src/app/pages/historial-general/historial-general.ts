@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 export interface SesionHistorial {
@@ -15,6 +16,12 @@ export interface SesionHistorial {
   templateUrl: './historial-general.html',
 })
 export class HistorialGeneral {
+  private readonly location = inject(Location);
+
+  protected goBack(): void {
+    this.location.back();
+  }
+
   protected readonly periodos = ['Esta semana', 'Este mes', 'Todo'];
   protected readonly actividades = [
     'Todas',
