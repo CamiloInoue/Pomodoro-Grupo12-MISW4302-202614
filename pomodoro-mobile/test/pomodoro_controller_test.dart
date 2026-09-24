@@ -55,7 +55,7 @@ void main() {
         addTearDown(controller.dispose);
 
         controller.start();
-        async.elapse(PomodoroController.focusDuration);
+        async.elapse(controller.focusDuration);
 
         expect(controller.phase, SessionPhase.breakTime);
         expect(controller.currentCycle, 1);
@@ -69,7 +69,7 @@ void main() {
         addTearDown(controller.dispose);
 
         controller.start();
-        async.elapse(PomodoroController.focusDuration);
+        async.elapse(controller.focusDuration);
         controller.skipBreak();
 
         expect(controller.phase, SessionPhase.focus);
@@ -86,8 +86,8 @@ void main() {
 
         controller.start();
         for (var i = 0; i < PomodoroController.totalCycles; i++) {
-          async.elapse(PomodoroController.focusDuration);
-          async.elapse(PomodoroController.breakDuration);
+          async.elapse(controller.focusDuration);
+          async.elapse(controller.breakDuration);
         }
 
         expect(controller.phase, SessionPhase.finished);
@@ -121,7 +121,7 @@ void main() {
         addTearDown(controller.dispose);
 
         controller.start();
-        async.elapse(PomodoroController.focusDuration);
+        async.elapse(controller.focusDuration);
         controller.skipBreak();
         controller.reset();
 

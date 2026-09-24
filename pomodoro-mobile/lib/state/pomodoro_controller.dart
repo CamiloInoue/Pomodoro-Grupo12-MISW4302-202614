@@ -13,12 +13,19 @@ enum SessionPhase { focus, breakTime, finished }
 /// y nunca acumulando ticks: si el sistema operativo estrangula los timers con
 /// la app en segundo plano, al volver el conteo sigue siendo correcto.
 class PomodoroController extends ChangeNotifier {
-  static const focusDuration = Duration(minutes: 1);
-  static const breakDuration = Duration(minutes: 1);
   static const totalCycles = 3;
 
   /// Provisional hasta que exista la pantalla de Configuración.
   static const activityName = 'Terminar ensayo';
+
+  /// Configurables desde la pantalla "Configurar pomodoro" vía [configure].
+  Duration focusDuration;
+  Duration breakDuration;
+
+  PomodoroController({
+    this.focusDuration = const Duration(minutes: 25),
+    this.breakDuration = const Duration(minutes: 5),
+  }) : _remaining = focusDuration;
 
   Timer? _ticker;
   DateTime _deadline = clock.now();
@@ -27,7 +34,7 @@ class PomodoroController extends ChangeNotifier {
   int _currentCycle = 1;
   int _cyclesCompleted = 0;
   int _completedBreaks = 0;
-  Duration _remaining = focusDuration;
+  Duration _remaining;
   Duration _focusElapsed = Duration.zero;
   bool _isRunning = false;
   bool _completedFully = false;
@@ -99,6 +106,14 @@ class PomodoroController extends ChangeNotifier {
     _remaining = _deadline.difference(clock.now());
     if (_remaining < Duration.zero) _remaining = Duration.zero;
     _isRunning = false;
+    notifyListeners();
+  }
+
+  /// Cambia las duraciones de enfoque/descanso antes de arrancar la sesión.
+  void configure({required Duration focusDuration, required Duration breakDuration}) {
+    this.focusDuration = focusDuration;
+    this.breakDuration = breakDuration;
+    _remaining = focusDuration;
     notifyListeners();
   }
 

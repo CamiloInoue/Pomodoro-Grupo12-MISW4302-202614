@@ -14,6 +14,28 @@ extension NavTabLabel on NavTab {
         return 'Ajustes';
     }
   }
+
+  IconData get icon {
+    switch (this) {
+      case NavTab.inicio:
+        return Icons.home_outlined;
+      case NavTab.historial:
+        return Icons.history;
+      case NavTab.ajustes:
+        return Icons.settings_outlined;
+    }
+  }
+
+  IconData get activeIcon {
+    switch (this) {
+      case NavTab.inicio:
+        return Icons.home;
+      case NavTab.historial:
+        return Icons.history;
+      case NavTab.ajustes:
+        return Icons.settings;
+    }
+  }
 }
 
 /// Tab bar inferior reutilizable (custom, sigue el spec de 80dp de altura).
@@ -42,6 +64,14 @@ class BottomNavBar extends StatelessWidget {
               padding: const EdgeInsets.only(top: 12),
               child: Column(
                 children: [
+                  Icon(
+                    isActive ? tab.activeIcon : tab.icon,
+                    size: 22,
+                    color: isActive
+                        ? AppColors.neutralTextPrimary
+                        : AppColors.neutralTextSecondary,
+                  ),
+                  const SizedBox(height: 2),
                   Text(
                     tab.label,
                     style: TextStyle(

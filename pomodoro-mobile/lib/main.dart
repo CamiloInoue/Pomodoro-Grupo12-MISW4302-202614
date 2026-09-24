@@ -89,7 +89,14 @@ class SessionFlowScreen extends StatelessWidget {
           cyclesCompleted: controller.cyclesLabel,
           breaksCount: controller.breaksLabel,
           isComplete: controller.completedFully,
-          onBackToHomeTap: controller.reset,
+          onBackToHomeTap: () {
+            controller.reset();
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (_) => const InicioScreen()),
+              (route) => false,
+            );
+          },
         );
     }
   }
