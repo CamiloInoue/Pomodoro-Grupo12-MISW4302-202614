@@ -14,7 +14,8 @@ class ConfigurarPomodoroScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.neutralBackground,
         elevation: 0,
-        automaticallyImplyLeading: false, // El mockup no muestra flecha de regreso aquí
+        automaticallyImplyLeading:
+            false, // El mockup no muestra flecha de regreso aquí
       ),
       bottomNavigationBar: const BottomNavBar(activeTab: NavTab.inicio),
       body: AppScreenBody(
@@ -32,20 +33,44 @@ class ConfigurarPomodoroScreen extends StatelessWidget {
             backgroundColor: AppColors.flowConfig,
             foregroundColor: AppColors.neutralBackground,
             padding: const EdgeInsets.symmetric(vertical: 16),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
           ),
-          child: const Text('Iniciar', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+          child: const Text(
+            'Iniciar',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          ),
         ),
         children: [
-          const Text('Configurar pomodoro', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: AppColors.neutralTextPrimary)),
+          const Text(
+            'Configurar pomodoro',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w700,
+              color: AppColors.neutralTextPrimary,
+            ),
+          ),
           const SizedBox(height: 8),
-          const Text('Actividad seleccionada: Terminar ensayo', style: TextStyle(fontSize: 14, color: AppColors.neutralTextSecondary)),
+          const Text(
+            'Actividad seleccionada: Terminar ensayo',
+            style: TextStyle(
+              fontSize: 14,
+              color: AppColors.neutralTextSecondary,
+            ),
+          ),
           const SizedBox(height: 32),
           _buildStepper('Tiempo concentración: 25 min'),
           const SizedBox(height: 16),
           _buildStepper('Tiempo descanso: 5 min'),
           const SizedBox(height: 32),
-          const Text('Número de ciclos', style: TextStyle(fontSize: 14, color: AppColors.neutralTextSecondary)),
+          const Text(
+            'Número de ciclos',
+            style: TextStyle(
+              fontSize: 14,
+              color: AppColors.neutralTextSecondary,
+            ),
+          ),
           const SizedBox(height: 12),
           Row(
             children: [
@@ -71,7 +96,13 @@ class ConfigurarPomodoroScreen extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: const TextStyle(fontSize: 14, color: AppColors.neutralTextPrimary)),
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: 14,
+              color: AppColors.neutralTextPrimary,
+            ),
+          ),
           Row(
             children: [
               _iconButton(Icons.remove),
@@ -89,11 +120,19 @@ class ConfigurarPomodoroScreen extends StatelessWidget {
       width: 32,
       height: 32,
       decoration: BoxDecoration(
-        border: Border.all(color: isAccent ? AppColors.flowConfig : AppColors.neutralBorder),
+        border: Border.all(
+          color: isAccent ? AppColors.flowConfig : AppColors.neutralBorder,
+        ),
         borderRadius: BorderRadius.circular(8),
-        color: isAccent ? AppColors.flowConfig.withOpacity(0.1) : Colors.transparent,
+        color: isAccent
+            ? AppColors.flowConfig.withValues(alpha: 0.1)
+            : Colors.transparent,
       ),
-      child: Icon(icon, size: 16, color: isAccent ? AppColors.flowConfig : AppColors.neutralTextPrimary),
+      child: Icon(
+        icon,
+        size: 16,
+        color: isAccent ? AppColors.flowConfig : AppColors.neutralTextPrimary,
+      ),
     );
   }
 
@@ -104,7 +143,9 @@ class ConfigurarPomodoroScreen extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: isSelected ? AppColors.flowConfig : Colors.transparent,
-          border: Border.all(color: isSelected ? AppColors.flowConfig : AppColors.neutralBorder),
+          border: Border.all(
+            color: isSelected ? AppColors.flowConfig : AppColors.neutralBorder,
+          ),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Text(
@@ -112,7 +153,9 @@ class ConfigurarPomodoroScreen extends StatelessWidget {
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w500,
-            color: isSelected ? AppColors.neutralBackground : AppColors.neutralTextPrimary,
+            color: isSelected
+                ? AppColors.neutralBackground
+                : AppColors.neutralTextPrimary,
           ),
         ),
       ),

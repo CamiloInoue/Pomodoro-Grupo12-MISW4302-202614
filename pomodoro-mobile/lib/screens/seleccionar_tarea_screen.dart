@@ -69,7 +69,7 @@ class SeleccionarTareaScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: isSelected ? AppColors.flowConfig.withOpacity(0.05) : AppColors.neutralBackground,
+        color: isSelected ? AppColors.flowConfig.withValues(alpha: 0.05) : AppColors.neutralBackground,
         border: Border.all(color: isSelected ? AppColors.flowConfig : AppColors.neutralBorder),
         borderRadius: BorderRadius.circular(12),
       ),
